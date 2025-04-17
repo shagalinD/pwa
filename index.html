@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4a90e2" />
+    <title>Задачки</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Задачки</h1>
+        <button id="install-btn" class="hidden">Скачать приложение</button>
+        <button id="notification-btn">Включить уведомления</button>
+      </header>
+
+      <div class="task-input">
+        <input type="text" id="new-task" placeholder="Add a new task..." />
+        <button id="add-task-btn">Добавить</button>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="active">Активные</button>
+        <button class="filter-btn" data-filter="completed">Выполненные</button>
+      </div>
+
+      <ul id="task-list"></ul>
+
+      <div class="status-bar">
+        <p id="connection-status">Онлайн</p>
+        <p id="tasks-count">0 осталось задачек</p>
+      </div>
+    </div>
+
+    <div id="install-prompt" class="hidden">
+      <div class="prompt-content">
+        <p>Добавь на домашний экран</p>
+        <div class="prompt-buttons">
+          <button id="close-prompt">Потом</button>
+          <button id="confirm-install">Давай!</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      // Register service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('service-worker.js')
+            .then((registration) => {
+              console.log(
+                'ServiceWorker registered with scope:',
+                registration.scope
+              )
+            })
+            .catch((error) => {
+              console.error('ServiceWorker registration failed:', error)
+            })
+        })
+      }
+    </script>
+  </body>
+</html>
