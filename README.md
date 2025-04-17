@@ -26,8 +26,8 @@
 1. Склонируй репозиторий:
 
 ```bash
-git clone https://github.com/yourusername/todo-js-app.git
-cd todo-js-app
+git clone [https://github.com/shagalinD/pwa](https://github.com/shagalinD/pwa)
+cd pwa
 ```
 
 2. Открой `index.html` в браузере или подними локальный сервер:
@@ -41,11 +41,12 @@ npx serve .
 ## 🧩 Структура проекта
 
 ```bash
-📦 todo-js-app/
+📦 pwa/
 ├── index.html            # Основная HTML-страница
 ├── style.css             # Стили приложения
 ├── app.js                # Главная логика приложения
-├── sw.js                 # Service Worker для PWA
+├── manifest.js                 # Service Worker для PWA
+├── service-worker.js                 # Service Worker для PWA
 └── icons/                # Иконки и manifest файлы
 ```
 
